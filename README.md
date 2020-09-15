@@ -7,4 +7,4 @@ Please refer to the full documents and movies from below.
 - [Movie (YouTube)](https://www.youtube.com/user/kintoneglobal)
 - [Hands-on document (Speakerdeck)](https://speakerdeck.com/cybozugta)
 
-Hope you enjoy learning Kintone!
+Hope you enjoy learning Kintone customization!
