@@ -1,4 +1,4 @@
-# Kintone-Tech-Training
+# Kintone Technical Training materials
 
 Here is the Kintone Technical Training Menu materials.  
 We will share programs and app templates using in our hands-on session.  
