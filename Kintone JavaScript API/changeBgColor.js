@@ -47,11 +47,11 @@
   kintone.events.on('app.record.index.show', function(event) {
     var records = event.records;
     var elements = kintone.app.getFieldElements('Sales_Stage');
-    records.forEach(function(record, i) {
+    for (var i = 0; i < records.length; i++) {
       var value = record.Sales_Stage.value;
       var element = elements[i];
       changeSalesStageFieldColor({element: element, value: value});
-    });
+    }
     return event;
   });
 
