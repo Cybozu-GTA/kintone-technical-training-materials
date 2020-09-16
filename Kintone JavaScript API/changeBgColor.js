@@ -22,7 +22,7 @@
       fontWeight = 'bold';
       break;
     case 'Closed-Lost':
-      backgroundColor = 'rgb(198,195,195)';
+      backgroundColor = '#C6C3C3';
       break;
     default:
       break;
