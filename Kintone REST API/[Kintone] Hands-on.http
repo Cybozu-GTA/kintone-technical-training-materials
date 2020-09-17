@@ -1,0 +1,430 @@
+### kintone REST API Requests - App Records
+@domain = {subdomain}.kintone.com
+@authToken = a2ludG9uZTpkZXZlbG9wZXI=
+@companyAppId = 5
+@contactLogAppName = Contact Log
+@contactLogAppId = 37
+
+### POST/preview/app
+POST https://{{domain}}/k/v1/preview/app.json
+X-Cybozu-Authorization: : {{authToken}}
+Content-Type: application/json
+
+{
+  "name": "{{contactLogAppName}}"
+}
+
+### PUT/preview/app/settings
+PUT https://{{domain}}/k/v1/preview/app/settings.json
+X-Cybozu-Authorization: : {{authToken}}
+Content-Type: application/json
+
+{
+  "app": {{contactLogAppId}},
+  "icon": {
+    "type": "PRESET",
+    "key": "APP87"
+  },
+  "theme": "GREEN"
+}
+
+### POST/preview/app/form/fields
+POST https://{{domain}}/k/v1/preview/app/form/fields.json
+X-Cybozu-Authorization: : {{authToken}}
+Content-Type: application/json
+
+{
+  "app": {{contactLogAppId}},
+  "properties": {
+    "Date": {
+      "type": "DATE",
+      "code": "Date",
+      "label": "Date",
+      "noLabel": false,
+      "required": false,
+      "unique": false,
+      "defaultValue": "",
+      "defaultNowValue": true
+    },
+    "Company_Name_Search": {
+      "type": "SINGLE_LINE_TEXT",
+      "code": "Company_Name_Search",
+      "label": "Company Name [Search]",
+      "noLabel": false,
+      "required": false,
+      "lookup": {
+        "relatedApp": {
+          "app": "{{companyAppId}}",
+          "code": ""
+        },
+        "relatedKeyField": "Company_Name",
+        "fieldMappings": [
+          {
+            "field": "Contact_Name",
+            "relatedField": "Contact_Name"
+          },
+          {
+            "field": "Company_Name",
+            "relatedField": "Company_Name"
+          }
+        ],
+        "lookupPickerFields": [
+          "E_mail",
+          "Job_Title",
+          "Department"
+        ],
+        "filterCond": "",
+        "sort": "Record_number desc"
+      }
+    },
+    "Reported_by": {
+      "type": "USER_SELECT",
+      "code": "Reported_by",
+      "label": "Reported by",
+      "noLabel": false,
+      "required": false,
+      "entities": [],
+      "defaultValue": [
+        {
+          "type": "FUNCTION",
+          "code": "LOGINUSER()"
+        }
+      ]
+    },
+    "Type": {
+      "type": "DROP_DOWN",
+      "code": "Type",
+      "label": "Type",
+      "noLabel": false,
+      "required": false,
+      "options": {
+        "Call": {
+          "label": "Call",
+          "index": "2"
+        },
+        "E-mail": {
+          "label": "E-mail",
+          "index": "3"
+        },
+        "Web Meeting": {
+          "label": "Web Meeting",
+          "index": "0"
+        },
+        "Visit": {
+          "label": "Visit",
+          "index": "1"
+        },
+        "Other": {
+          "label": "Other",
+          "index": "4"
+        }
+      },
+      "defaultValue": ""
+    },
+    "Details": {
+      "type": "RICH_TEXT",
+      "code": "Details",
+      "label": "Details",
+      "noLabel": false,
+      "required": false,
+      "defaultValue": ""
+    },
+    "Attachment": {
+      "type": "FILE",
+      "code": "Attachment",
+      "label": "Attachment",
+      "noLabel": false,
+      "required": false,
+      "thumbnailSize": "150"
+    },
+    "Other_Records": {
+      "type": "REFERENCE_TABLE",
+      "code": "Other_Records",
+      "label": "Other Records",
+      "noLabel": false,
+      "referenceTable": {
+        "relatedApp": {
+          "app": {{contactLogAppId}},
+          "code": ""
+        },
+        "condition": {
+          "field": "Company_Name_Search",
+          "relatedField": "Company_Name_Search"
+        },
+        "filterCond": "",
+        "displayFields": [
+          "Date",
+          "Type",
+          "Details",
+          "Attachment"
+        ],
+        "sort": "Date desc",
+        "size": "5"
+      }
+    },
+    "Company_Name": {
+      "type": "SINGLE_LINE_TEXT",
+      "code": "Company_Name",
+      "label": "Company Name",
+      "noLabel": false,
+      "required": false,
+      "minLength": "",
+      "maxLength": "",
+      "expression": "",
+      "hideExpression": false,
+      "unique": false,
+      "defaultValue": ""
+    },
+    "Contact_Name": {
+      "type": "SINGLE_LINE_TEXT",
+      "code": "Contact_Name",
+      "label": "Contact Name",
+      "noLabel": false,
+      "required": false,
+      "minLength": "",
+      "maxLength": "",
+      "expression": "",
+      "hideExpression": false,
+      "unique": false,
+      "defaultValue": ""
+    },
+    "Field_group": {
+      "type": "GROUP",
+      "code": "Field_group",
+      "label": "Field group",
+      "noLabel": true,
+      "openGroup": false
+    }
+  }
+}
+
+### PUT/preview/app/form/layout
+PUT https://{{domain}}/k/v1/preview/app/form/layout.json
+X-Cybozu-Authorization: : {{authToken}}
+Content-Type: application/json
+
+{
+  "app": {{contactLogAppId}},
+  "layout": [
+    {
+      "type": "ROW",
+      "fields": [
+        {
+          "type": "DATE",
+          "code": "Date",
+          "size": {
+            "width": "117"
+          }
+        },
+        {
+          "type": "USER_SELECT",
+          "code": "Reported_by",
+          "size": {
+            "width": "344"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ROW",
+      "fields": [
+        {
+          "type": "SINGLE_LINE_TEXT",
+          "code": "Company_Name_Search",
+          "size": {
+            "width": "452"
+          }
+        },
+        {
+          "type": "DROP_DOWN",
+          "code": "Type",
+          "size": {
+            "width": "196"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ROW",
+      "fields": [
+        {
+          "type": "RICH_TEXT",
+          "code": "Details",
+          "size": {
+            "width": "441",
+            "innerHeight": "264"
+          }
+        },
+        {
+          "type": "FILE",
+          "code": "Attachment",
+          "size": {
+            "width": "207"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ROW",
+      "fields": [
+        {
+          "type": "REFERENCE_TABLE",
+          "code": "Other_Records"
+        }
+      ]
+    },
+    {
+      "type": "GROUP",
+      "code": "Field_group",
+      "layout": [
+        {
+          "type": "ROW",
+          "fields": [
+            {
+              "type": "SINGLE_LINE_TEXT",
+              "code": "Contact_Name",
+              "size": {
+                "width": "452"
+              }
+            }
+          ]
+        },
+        {
+          "type": "ROW",
+          "fields": [
+            {
+              "type": "SINGLE_LINE_TEXT",
+              "code": "Company_Name",
+              "size": {
+                "width": "452"
+              }
+            }
+          ]
+        },
+        {
+          "type": "ROW",
+          "fields": [
+            {
+              "type": "UPDATED_TIME",
+              "code": "Updated_datetime",
+              "size": {
+                "width": "196"
+              }
+            },
+            {
+              "type": "MODIFIER",
+              "code": "Updated_by",
+              "size": {
+                "width": "136"
+              }
+            }
+          ]
+        },
+        {
+          "type": "ROW",
+          "fields": [
+            {
+              "type": "CREATED_TIME",
+              "code": "Created_datetime",
+              "size": {
+                "width": "196"
+              }
+            },
+            {
+              "type": "CREATOR",
+              "code": "Created_by",
+              "size": {
+                "width": "136"
+              }
+            }
+          ]
+        },
+        {
+          "type": "ROW",
+          "fields": [
+            {
+              "type": "RECORD_NUMBER",
+              "code": "Record_number",
+              "size": {
+                "width": "120"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+### PUT/preview/app/views
+PUT https://{{domain}}/k/v1/preview/app/views.json
+X-Cybozu-Authorization: : {{authToken}}
+Content-Type: application/json
+
+{
+  "app": {{contactLogAppId}},
+  "views": {
+    "My List": {
+      "type": "LIST",
+      "name": "My List",
+      "filterCond": "",
+      "sort": "Date desc",
+      "index": "0",
+      "fields": [
+        "Date",
+        "Company_Name_Search",
+        "Type",
+        "Details",
+        "Attachment"
+      ]
+    }
+  }
+}
+
+### POST/preview/app/deploy
+POST https://{{domain}}/k/v1/preview/app/deploy.json
+X-Cybozu-Authorization: : {{authToken}}
+Content-Type: application/json
+
+{
+  "apps": [{
+    "app": "{{contactLogAppId}}"
+  }]
+}
+
+### POST/file
+POST https://{{domain}}/k/v1/file.json
+X-Cybozu-Authorization: {{authToken}}
+Content-Type: multipart/form-data; boundary=----20111107kintone20111107cybozucom
+
+------20111107kintone20111107cybozucom
+Content-Disposition: form-data; name="file"; filename="kintone.jpg"
+Content-Type: image/jpeg
+
+< ./kintone.jpg
+------20111107kintone20111107cybozucom--
+
+### POST/record
+POST https://{{domain}}/k/v1/record.json
+X-Cybozu-Authorization: : {{authToken}}
+Content-Type: application/json
+
+{
+    "app": {{contactLogAppId}},
+    "record": {
+      "Company_Name_Search": {
+        "value": "Zava"
+      },
+      "Type": {
+        "value": "Visit"
+      },
+      "Details": {
+        "value": ""
+      },
+      "Attachment": {
+        "value": [{
+          "fileKey": "a43a6abf-1cb7-4eb9-8274-313dceded45b"
+        }]
+      }
+    }
+}

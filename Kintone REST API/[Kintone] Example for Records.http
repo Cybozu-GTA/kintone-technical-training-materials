@@ -1,0 +1,102 @@
+### kintone REST API Requests - App Records
+@domain = {subdomain}.kintone.com
+@appId = 6
+@apiToken1 = rVTNhXxz8I9DuTt6bZzwtLMuVPhv7L77c3KCEtUx
+@apiToken2 = rVTNhXxz8I9DuTt6bZzwtLMuVPhv7L77c3KCEtUx
+
+### GET/records
+GET https://{{domain}}/k/v1/records.json?app={{appId}}
+X-Cybozu-API-Token: {{apiToken1}}
+
+### POST/records
+POST https://{{domain}}/k/v1/records.json
+X-Cybozu-API-Token: {{apiToken1}}, {{apiToken2}}
+Content-Type: application/json
+
+{
+  "app": {{appId}},
+  "records": [
+    {
+      "Company_Name_Search": {
+        "value": "Kintone"
+      },
+      "Deal_Name": {
+        "value": "Kintone app creation"
+      },
+      "Rep": {
+        "value": [{"code": "yamaroo"}]
+      }
+    },
+    {
+      "Company_Name_Search": {
+        "value": "Cybozu"
+      },
+      "Deal_Name": {
+        "value": "Kintone JavaScript customization"
+      },
+      "Rep": {
+        "value": [{"code": "sadaharu"}]
+      }
+    }
+  ]
+}
+
+### PUT/records
+PUT https://{{domain}}/k/v1/records.json
+X-Cybozu-API-Token: {{apiToken1}}
+Content-Type: application/json
+
+{
+  "app": {{appId}},
+  "records": [
+    {
+      "id": 1,
+      "record": {
+        "Deal_Name": {
+          "value": "Kintone App Creation"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "record": {
+        "Deal_Name": {
+          "value": "Kintone JavaScript Customization"
+        }
+      }
+    }
+  ]
+}
+
+### DELETE/records
+DELETE https://{{domain}}/k/v1/records.json?app={{appId}}&ids[0]=1
+X-Cybozu-API-Token: {{apiToken1}}
+
+### POST/file
+POST https://{{domain}}/k/v1/file.json
+X-Cybozu-API-Token: {{apiToken1}}
+Content-Type: multipart/form-data; boundary=----20111107kintone20111107cybozucom
+
+------20111107kintone20111107cybozucom
+Content-Disposition: form-data; name="file"; filename="kintone.jpg"
+Content-Type: image/jpeg
+
+< ./kintone.jpg
+------20111107kintone20111107cybozucom--
+
+### PUT/record for updating file
+PUT https://{{domain}}/k/v1/record.json
+X-Cybozu-API-Token: {{apiToken1}}
+Content-Type: application/json
+
+{
+    "app": {{appId}},
+    "id": "1",
+    "record": {
+      "Attachment": {
+        "value": [{
+          "fileKey": "ace0c164-82cc-4829-8638-41fbaeb4c61b"
+        }]
+      }
+    }
+}
