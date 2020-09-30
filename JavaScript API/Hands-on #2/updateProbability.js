@@ -28,4 +28,5 @@
     'app.record.edit.submit',
     'app.record.index.edit.submit'
   ], handler);
+
 })();
