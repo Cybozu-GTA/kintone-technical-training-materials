@@ -38,9 +38,9 @@
 
   kintone.events.on('app.record.detail.show', function(event) {
     var record = event.record;
-    var salesStageValue = record.Sales_Stage.value;
+    var salesStage = record.Sales_Stage.value;
     var salesStageElement = kintone.app.record.getFieldElement('Sales_Stage');
-    changeSalesStageFieldColor({element: salesStageElement, value: salesStageValue});
+    changeSalesStageFieldColor({element: salesStageElement, value: salesStage});
     return event;
   });
 
@@ -48,9 +48,9 @@
     var records = event.records;
     var salesStageElements = kintone.app.getFieldElements('Sales_Stage');
     for (var i = 0; i < records.length; i++) {
-      var salesStageValue = record.Sales_Stage.value;
+      var salesStage = record.Sales_Stage.value;
       var salesStageElement = salesStageElements[i];
-      changeSalesStageFieldColor({element: salesStageElement, value: salesStageValue});
+      changeSalesStageFieldColor({element: salesStageElement, value: salesStage});
     }
     return event;
   });
