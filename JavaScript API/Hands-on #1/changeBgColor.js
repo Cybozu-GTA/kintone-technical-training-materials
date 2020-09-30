@@ -48,6 +48,7 @@
     var records = event.records;
     var salesStageElements = kintone.app.getFieldElements('Sales_Stage');
     for (var i = 0; i < records.length; i++) {
+      var record = records[i];
       var salesStage = record.Sales_Stage.value;
       var salesStageElement = salesStageElements[i];
       changeSalesStageFieldColor({element: salesStageElement, value: salesStage});
