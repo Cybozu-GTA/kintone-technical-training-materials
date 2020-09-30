@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var COMPANY_LIST_APP_ID = 5; // Replace with your own one
+  var COMPANY_LIST_APP_ID = your_company_list_app_id;
 
   var handler = function(event) {
     console.log(event);
