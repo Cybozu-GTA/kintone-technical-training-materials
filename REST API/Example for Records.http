@@ -1,8 +1,8 @@
 ### kintone REST API Requests - App Records
-@domain = {subdomain}.kintone.com
-@appId = 6
-@apiToken1 = rVTNhXxz8I9DuTt6bZzwtLMuVPhv7L77c3KCEtUx
-@apiToken2 = rVTNhXxz8I9DuTt6bZzwtLMuVPhv7L77c3KCEtUx
+@domain = your_subdomain.kintone.com
+@appId = your_sales_deals_app_id
+@apiToken1 = your_sales_deals_app_api_token
+@apiToken2 = your_company_list_app_api_token
 
 ### GET/records
 GET https://{{domain}}/k/v1/records.json?app={{appId}}

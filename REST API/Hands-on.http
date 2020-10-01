@@ -1,9 +1,9 @@
 ### kintone REST API Requests - App Records
-@domain = {subdomain}.kintone.com
-@authToken = a2ludG9uZTpkZXZlbG9wZXI=
-@companyAppId = 5
+@domain = your_subdomain.kintone.com
+@authToken = your_base64_encoded_id:password
+@companyAppId = your_company_list_app_id
 @contactLogAppName = Contact Log
-@contactLogAppId = 37
+@contactLogAppId = your_contact_log_app_id
 
 ### POST/preview/app
 POST https://{{domain}}/k/v1/preview/app.json
