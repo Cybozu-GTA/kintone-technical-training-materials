@@ -24,7 +24,7 @@ Content-Type: application/json
         "value": "Kintone app creation"
       },
       "Rep": {
-        "value": [{"code": "yamaroo"}]
+        "value": [{"code": "your_user_code"}]
       }
     },
     {
@@ -35,7 +35,7 @@ Content-Type: application/json
         "value": "Kintone JavaScript customization"
       },
       "Rep": {
-        "value": [{"code": "sadaharu"}]
+        "value": [{"code": "your_user_code"}]
       }
     }
   ]
@@ -95,7 +95,7 @@ Content-Type: application/json
     "record": {
       "Attachment": {
         "value": [{
-          "fileKey": "ace0c164-82cc-4829-8638-41fbaeb4c61b"
+          "fileKey": "your_file_key"
         }]
       }
     }
