@@ -3,6 +3,7 @@
 @appId = your_sales_deals_app_id
 @apiToken1 = your_sales_deals_app_api_token
 @apiToken2 = your_company_list_app_api_token
+@userCode = your_user_code
 
 ### GET/records
 GET https://{{domain}}/k/v1/records.json?app={{appId}}
@@ -24,7 +25,7 @@ Content-Type: application/json
         "value": "Kintone app creation"
       },
       "Rep": {
-        "value": [{"code": "your_user_code"}]
+        "value": [{"code": "{{userCode}}"}]
       }
     },
     {
@@ -35,7 +36,7 @@ Content-Type: application/json
         "value": "Kintone JavaScript customization"
       },
       "Rep": {
-        "value": [{"code": "your_user_code"}]
+        "value": [{"code": "{{userCode}}"}]
       }
     }
   ]
