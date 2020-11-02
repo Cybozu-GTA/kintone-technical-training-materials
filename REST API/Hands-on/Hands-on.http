@@ -300,56 +300,6 @@ Content-Type: application/json
               }
             }
           ]
-        },
-        {
-          "type": "ROW",
-          "fields": [
-            {
-              "type": "UPDATED_TIME",
-              "code": "Updated_datetime",
-              "size": {
-                "width": "196"
-              }
-            },
-            {
-              "type": "MODIFIER",
-              "code": "Updated_by",
-              "size": {
-                "width": "136"
-              }
-            }
-          ]
-        },
-        {
-          "type": "ROW",
-          "fields": [
-            {
-              "type": "CREATED_TIME",
-              "code": "Created_datetime",
-              "size": {
-                "width": "196"
-              }
-            },
-            {
-              "type": "CREATOR",
-              "code": "Created_by",
-              "size": {
-                "width": "136"
-              }
-            }
-          ]
-        },
-        {
-          "type": "ROW",
-          "fields": [
-            {
-              "type": "RECORD_NUMBER",
-              "code": "Record_number",
-              "size": {
-                "width": "120"
-              }
-            }
-          ]
         }
       ]
     }
