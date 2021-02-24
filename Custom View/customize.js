@@ -251,7 +251,7 @@
   };
 
   /**
-   * Create HTML for drop-down with HTML template engine
+   * Create HTML for dropdown with HTML template engine
    * @return {String} compiled HTML
    */
   var createDropdownHTML = function() {
@@ -277,7 +277,7 @@
   };
 
   /**
-   * Render drop-down
+   * Render dropdown
    */
   var renderDropdown = function() {
     // https://developer.kintone.io/hc/en-us/articles/213148937/#getHeaderMenuSpaceElement
