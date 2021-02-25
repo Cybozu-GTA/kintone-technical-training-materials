@@ -2,11 +2,11 @@
 (function() {
   'use strict';
 
-  // const values for individual
-  var BUDGET_APP_ID = 29;
-  var CUSTOMIZE_VIEW_ID = 4482;
+  // constant values for app and custom view
+  var BUDGET_APP_ID = your_budget_app_id;
+  var CUSTOM_VIEW_ID = your_sales_deals_app_custom_view_id;
 
-  // const values for this customization
+  // constant values for this customization
   var MAX_READ_LIMIT = 100;
 
   var DateTime = luxon.DateTime; // Luxon: date & time wrapper https://moment.github.io/luxon/docs/manual/tour.html
@@ -97,7 +97,7 @@
   var buildData = function(params) {
     var year = params.year;
     var start = DateTime.local().set({year: year}).startOf('year').toISODate(); // 2021-01-01 ISO8601 format
-    var end = DateTime.local().set({year: year}).endOf('year').toISODate(); // 2021-01-01 ISO ISO8601 format
+    var end = DateTime.local().set({year: year}).endOf('year').toISODate();     // 2021-12-31 ISO8601 format
 
     // build query condition
     // https://developer.kintone.io/hc/en-us/articles/360019245194
@@ -311,7 +311,7 @@
    * @param {Object} event - kintone event object
    */
   var indexHandler = function(event) {
-    if (event.viewId !== CUSTOMIZE_VIEW_ID) {
+    if (event.viewId !== CUSTOM_VIEW_ID) {
       return event;
     }
     return renderDropdown().then(function(response) {
