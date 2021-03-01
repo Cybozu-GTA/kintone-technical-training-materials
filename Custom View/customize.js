@@ -324,6 +324,6 @@
     });
   };
 
-  // attach app.record.index.show event
+  // Attach app.record.index.show event
   kintone.events.on('app.record.index.show', indexHandler);
 })();
