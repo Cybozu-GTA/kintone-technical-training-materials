@@ -2,6 +2,14 @@
   max-width: 100px;
 }
 
+.kintoneplugin-table {
+  margin-left: 16px;
+}
+
+.kintoneplugin-table-th.title .title {
+  min-width: calc((100vw - 18px - 204px * 2) / 12 - 0.5px);
+}
+
 .value {
   text-align: right;
 }
