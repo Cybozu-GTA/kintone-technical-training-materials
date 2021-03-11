@@ -117,6 +117,7 @@
         condition: targetCondition
       })
     ]).then(function(response) {
+      console.log(response);
       var users = response[0];
       var salesRecords = response[1];
       var targetRecords = response[2];
