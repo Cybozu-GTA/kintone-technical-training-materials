@@ -19,7 +19,7 @@
    *   - {Number} [limit] - size
    *   - {Number} [offset=0] - offset
    *   - {Array} [ids=[]] - ids
-   *   - {Array} [codes=[]] - code
+   *   - {Array} [codes=[]] - codes
    * @return {Object} object return
    *   - {Array} users - users
    */
