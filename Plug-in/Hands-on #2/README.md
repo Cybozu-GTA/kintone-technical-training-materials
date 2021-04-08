@@ -1,0 +1,1 @@
+# user-selection-conditional-format-plug-in

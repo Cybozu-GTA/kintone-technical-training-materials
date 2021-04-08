@@ -1,0 +1,34 @@
+{
+  "manifest_version": 1,
+  "version": 1,
+  "type": "APP",
+  "name": {
+    "en": "User Selection Conditional Format Plug-in"
+  },
+  "description": {
+    "en": "You can change the background color of the specified user selection field on the Record List and Details screen if the user name value matches the logged-in user."
+  },
+  "icon": "image/icon.png",
+  "desktop": {
+    "js": [
+      "js/desktop.js"
+    ],
+    "css": [
+    ]
+  },
+  "config": {
+    "html": "html/config.html",
+    "js": [
+      "https://unpkg.com/@kintone/rest-api-client@latest/umd/KintoneRestAPIClient.min.js",
+      "js/config.js"
+    ],
+    "css": [
+      "css/51-modern-default.css",
+      "css/config.css"
+    ],
+    "required_params": [
+      "fieldSelection",
+      "bgColor"
+    ]
+  }
+}
