@@ -8,3 +8,11 @@ Please refer to the full documents and videos from below.
 - [Hands-on document (Speaker Deck)](https://speakerdeck.com/cybozugta)
 
 Hope you enjoy learning Kintone customization!
+
+# License
+
+MIT License
+
+# Copyright
+
+Copyright(c) Cybozu, Inc.
